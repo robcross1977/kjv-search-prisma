@@ -1,7 +1,9 @@
 # King James Version Bible Search
-This library exposes a single function - search. You input a bible search string, which can take many forms, and it'll spit back out a JSON object containing the results of the query. 
+
+This library exposes a single function - search. You input a bible search string, which can take many forms, and it'll spit back out a JSON object containing the results of the query.
 
 ## Installing
+
 1. git clone
 2. npm install
 3. npm run build

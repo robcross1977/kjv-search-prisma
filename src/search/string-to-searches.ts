@@ -122,11 +122,11 @@ const getChapterVerses = (
   const chapter = parseInt(result?.at(1)!);
   const digit1 = parseInt(result?.at(2)!);
   const digit2 = parseInt(result?.at(3)!);
+  const min = Math.min(digit1, digit2);
+  const max = Math.max(digit1, digit2);
+  const count = max - min + 1;
 
-  return [
-    chapter,
-    getRangeFrom(Math.min(digit1, digit2), Math.max(digit1, digit2)),
-  ];
+  return [chapter, getRangeFrom(min, count)];
 };
 const buildChapterVerses = (bookName: string, params: string): Book => {
   const [chapter, verses] = getChapterVerses(params);
