@@ -1,16 +1,14 @@
 import { Prisma } from "@prisma/client";
 import { Book } from "./types";
 
-const toPrisma = (
-  searches: Book[]
-): Array<{ search: Prisma.BookFindManyArgs }> =>
+const toPrisma = (searches: Book[]): Prisma.BookFindManyArgs[] =>
   searches.reduce<Array<any>>((acc, search) => {
     return search.chapters && search.chapters.length > 0
       ? [
           ...acc,
           ...search.chapters.map((ch) => {
             return {
-              search: formatSearch(
+              ...formatSearch(
                 search.name,
                 ch.number,
                 ch.verses?.map((v) => v.number)
