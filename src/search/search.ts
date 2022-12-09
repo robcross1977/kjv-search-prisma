@@ -9,7 +9,7 @@ const bibleSearchTransaction = async (
 
 const search = async (search: string) => {
   const searches = getSearches(search);
-  const prismaQueries = toPrisma(searches).map((pq) => pq.search);
+  const prismaQueries = toPrisma(searches).map((pq) => pq);
   const result = await bibleSearchTransaction(prismaQueries);
 
   return result;
