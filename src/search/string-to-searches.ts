@@ -162,9 +162,11 @@ const getNonConsecutiveChapters = (params: string) =>
       return [...p, ...range];
     } else if (!Number.isNaN(digit1)) {
       return [...p, digit1];
-    } else {
-      return [...p];
     }
+
+    // Should be unable to get here from the public interface since we always
+    // call hasNonConsecutiveChapters before calling this (at least I hope we do)
+    return [...p];
   }, []);
 const buildNonConsecutiveChapters = (
   bookName: string,

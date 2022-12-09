@@ -13,7 +13,6 @@ describe("string-to-searches", () => {
         // act
         const result = toPrisma([v.searchObj]);
 
-        console.log(JSON.stringify(result));
         // assert
         expect(result).toEqual(expected);
       }

@@ -323,6 +323,222 @@ export const searchMocks: {
     sqlResult: undefined,
   },
   {
+    search: "1 John1 - 3, 5",
+    searchObj: {
+      name: "1 John",
+      chapters: [
+        {
+          number: 1,
+        },
+        {
+          number: 2,
+        },
+        {
+          number: 3,
+        },
+        {
+          number: 5,
+        },
+      ],
+    },
+    prismaObj: [
+      {
+        include: {
+          chapters: {
+            include: {
+              verses: {
+                orderBy: {
+                  number: "asc",
+                },
+              },
+            },
+            orderBy: {
+              number: "asc",
+            },
+            where: {
+              AND: [
+                {
+                  bookName: {
+                    startsWith: "1 John",
+                  },
+                },
+                {
+                  number: 1,
+                },
+              ],
+            },
+          },
+        },
+        where: {
+          name: {
+            startsWith: "1 John",
+          },
+        },
+      },
+      {
+        include: {
+          chapters: {
+            include: {
+              verses: {
+                orderBy: {
+                  number: "asc",
+                },
+              },
+            },
+            orderBy: {
+              number: "asc",
+            },
+            where: {
+              AND: [
+                {
+                  bookName: {
+                    startsWith: "1 John",
+                  },
+                },
+                {
+                  number: 2,
+                },
+              ],
+            },
+          },
+        },
+        where: {
+          name: {
+            startsWith: "1 John",
+          },
+        },
+      },
+      {
+        include: {
+          chapters: {
+            include: {
+              verses: {
+                orderBy: {
+                  number: "asc",
+                },
+              },
+            },
+            orderBy: {
+              number: "asc",
+            },
+            where: {
+              AND: [
+                {
+                  bookName: {
+                    startsWith: "1 John",
+                  },
+                },
+                {
+                  number: 3,
+                },
+              ],
+            },
+          },
+        },
+        where: {
+          name: {
+            startsWith: "1 John",
+          },
+        },
+      },
+      {
+        include: {
+          chapters: {
+            include: {
+              verses: {
+                orderBy: {
+                  number: "asc",
+                },
+              },
+            },
+            orderBy: {
+              number: "asc",
+            },
+            where: {
+              AND: [
+                {
+                  bookName: {
+                    startsWith: "1 John",
+                  },
+                },
+                {
+                  number: 5,
+                },
+              ],
+            },
+          },
+        },
+        where: {
+          name: {
+            startsWith: "1 John",
+          },
+        },
+      },
+    ],
+    sqlResult: undefined,
+  },
+  {
+    search: "1 Samuel  11 :  11  -  13",
+    searchObj: {
+      name: "1 Samuel",
+      chapters: [
+        {
+          number: 11,
+          verses: [{ number: 11 }, { number: 12 }, { number: 13 }],
+        },
+      ],
+    },
+    prismaObj: {
+      include: {
+        chapters: {
+          include: {
+            verses: {
+              orderBy: {
+                number: "asc",
+              },
+              where: {
+                AND: [
+                  {
+                    bookName: {
+                      startsWith: "1 Samuel",
+                    },
+                  },
+                  {
+                    number: {
+                      in: [11, 12, 13],
+                    },
+                  },
+                ],
+              },
+            },
+          },
+          orderBy: {
+            number: "asc",
+          },
+          where: {
+            AND: [
+              {
+                bookName: {
+                  startsWith: "1 Samuel",
+                },
+              },
+              {
+                number: 11,
+              },
+            ],
+          },
+        },
+      },
+      where: {
+        name: {
+          startsWith: "1 Samuel",
+        },
+      },
+    },
+    sqlResult: undefined,
+  },
+
+  {
     search: "1  Samuel  9,  11,  13",
     searchObj: {
       name: "1 Samuel",
