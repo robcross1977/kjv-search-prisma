@@ -2,8 +2,8 @@ import { searchMocks } from "./__mocks__/mocks";
 import { toPrisma } from "../searches-to-prisma";
 
 describe("string-to-searches", () => {
-  it("should return an equivalent prisma query object for each search passed to it", () => {
-    searchMocks.forEach((v) => {
+  searchMocks.forEach((v) => {
+    it(`should return a prisma search for: ${v.search}`, () => {
       if (v && v.prismaObj && v.searchObj) {
         // arrange
         const expected = Array.isArray(v.prismaObj)
