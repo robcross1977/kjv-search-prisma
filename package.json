@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:ci": "jest --ci --reporters='default' --reporters='./github-actions-reporter'",
     "build": "prisma generate && rm -rf ./dist && tsc"
   },
   "keywords": [],
