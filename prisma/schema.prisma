@@ -4,34 +4,33 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./bible.db"
+  url      = "file:./kjv.db"
 }
 
 model Book {
-  name String @unique
+  name     String    @unique
   chapters Chapter[]
+
   @@map("books")
 }
 
 model Chapter {
-  number Int
-  verses  Verse[]
-
-  book Book? @relation(fields: [bookName], references: [name])
+  number   Int
   bookName String
+  book     Book    @relation(fields: [bookName], references: [name])
+  verses   Verse[]
 
-  @@map("chapters")
   @@unique([number, bookName])
+  @@map("chapters")
 }
 
 model Verse {
-  number Int
-  text  String
-
-  chapter Chapter? @relation(fields: [chapterNumber, bookName], references: [number, bookName])
+  number        Int
+  text          String
   chapterNumber Int
-  bookName String
+  bookName      String
+  chapter       Chapter @relation(fields: [chapterNumber, bookName], references: [number, bookName])
 
-  @@map("verses")
   @@unique([bookName, chapterNumber, number])
+  @@map("verses")
 }
